@@ -1,0 +1,15 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model part774 {
+  category    Int
+  subcategory String @db.VarChar(45)
+  id          String @id @unique(map: "Part774_id_key") @db.VarChar(45)
+  description String @db.VarChar(150)
+}

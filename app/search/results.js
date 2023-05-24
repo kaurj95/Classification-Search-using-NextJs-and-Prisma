@@ -10,7 +10,7 @@ const SearchLog= ({selectedCat,selectedSubc,search}) => {
     let cat; 
     let subcat; 
     const callresult =async() =>{
-        if (selectedCat != "Select Category" && selectedCat != "Select Subcategory"  ){ 
+        if (selectedCat != "Select Category" && selectedSubc != "Select Subcategory"  ){ 
             if (selectedCat == "All"){
                 if (selectedSubc== "All"){
                     const [results,next,prev] = await getResult(undefined,undefined,search,skip,limit)

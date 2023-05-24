@@ -5,10 +5,26 @@ const InputField = ({search,selected,setSearch,selectedSub}) =>{
     let options = [];
     let opt ;
     const calllist =async() =>{
-        if (selected != "Select Category"){
-            if (selected == "All" && selectedSub == "All"){
-                const list = await getList(undefined,undefined,search);
-                setList(list);
+        if (selected != "Select Category" && selectedSub != "Select Subcategory" ){
+            if (selected == "All"){
+                if (selectedSub == "All"){
+                    const list = await getList(undefined,undefined,search);
+                    setList(list);
+                }
+                else{
+                    const list = await getList(undefined,selectedSub,search);
+                    setList(list);
+                }
+            }
+            else if (selectedSub == "All"){
+                if (selected== "All"){
+                    const list = await getList(undefined,undefined,search);
+                    setList(list);
+                }
+                else{
+                    const list = await getList(Number(selected),undefined,search);
+                    setList(list);
+                }
             }
             else{
                 const list = await getList(Number(selected),selectedSub,search)
